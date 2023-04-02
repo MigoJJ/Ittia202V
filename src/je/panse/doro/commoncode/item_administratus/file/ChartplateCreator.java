@@ -12,7 +12,7 @@ public class ChartplateCreator {
     String currentUsersDir = System.getProperty("user.dir");
     String homeDir = currentUsersDir + "/src";
     String workingDir = homeDir + "/datatext/samsara";
-    List<String> subsourceFiles = Arrays.asList("3CC", "3PI", "3PMH", "3ROS", "4PMH", "5SUJ", "6OBJ", "7LAB", "8ASS", "9PLAN", "10COMMENT");
+    List<String> subsourceFiles = Arrays.asList("3CC", "3PI", "3ROS", "4PMH", "5SUJ", "6OBJ", "7LAB", "8ASS", "9PLAN", "10COMMENT");
     File chartplateFile = new File(EntryDir.workingDir + "/chartplate"); // Change the file name and path as per your requirements
     
     System.out.println(chartplateFile);

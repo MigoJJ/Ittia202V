@@ -1,0 +1,11 @@
+					textAreas[2].append(line + "\n");
+		}
+		reader.close();
+		saveToClipboard();
+   	}
+		
+    public static void saveToClipboard() throws IOException {
+	    StringSelection stringSelection = new StringSelection(textAreas[2].getText());
+	    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+	    clipboard.setContents(stringSelection, null);
+    }
