@@ -1,17 +1,24 @@
-package fourgate.ccpipmh;
+package je.panse.doro.fourgate.ccpipmh;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import javax.swing.*;
-
-import commoncode.item_administratus.file.SvaePresentCilp;
-import singlebeam.EntryDir;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import je.panse.doro.commoncode.item_administratus.file.SvaePresentCilp;
+import je.panse.doro.singlebeam.EntryDir;
 
 public class EMRPMH extends JFrame implements ActionListener {
 

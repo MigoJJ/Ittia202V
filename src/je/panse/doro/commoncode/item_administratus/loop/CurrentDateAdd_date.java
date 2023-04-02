@@ -1,6 +1,6 @@
-package commoncode.item_administratus.loop;
+package je.panse.doro.commoncode.item_administratus.loop;
 
-import java.util.*;			
+import java.util.*;				
 import java.text.*;
 
 public class CurrentDateAdd_date {

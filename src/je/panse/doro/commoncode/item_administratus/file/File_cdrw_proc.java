@@ -1,4 +1,4 @@
-package commoncode.item_administratus.file;
+package je.panse.doro.commoncode.item_administratus.file;
 
 import java.io.File;	
 import java.io.FileNotFoundException;

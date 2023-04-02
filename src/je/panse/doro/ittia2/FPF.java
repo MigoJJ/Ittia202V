@@ -1,16 +1,12 @@
-package ittia2;
+package je.panse.doro.ittia2;
 
-import javax.swing.*;			
-import commoncode.CallStringInt;
-import ittia2.FPFsub.PFPpanelcategory;
-import ittia2.FPFsub.ReturncatergoryList;
-import java.awt.*;
+import java.awt.*;	
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.IOException;
+import javax.swing.*;
+import je.panse.doro.commoncode.CallStringInt;
+import je.panse.doro.ittia2.FPFsub.PFPpanelcategory;
 
 public class FPF extends JFrame{
     public static JTextArea[] textAreas;

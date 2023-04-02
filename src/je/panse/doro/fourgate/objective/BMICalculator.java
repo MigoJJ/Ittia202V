@@ -1,14 +1,19 @@
-package fourgate.objective;
+package je.panse.doro.fourgate.objective;
 
-import java.awt.*;	
-import java.awt.event.*;
-import javax.swing.*;
-import commoncode.item_administratus.file.SvaePresentCilp;
-import commoncode.item_administratus.loop.CurrentDateAdd_date;
-import singlebeam.EntryDir;
-
-import java.io.*;
-import java.util.concurrent.TimeUnit;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.io.IOException;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import je.panse.doro.commoncode.item_administratus.file.SvaePresentCilp;
+import je.panse.doro.commoncode.item_administratus.loop.CurrentDateAdd_date;
 
 public class BMICalculator extends JFrame implements ActionListener {
     // GUI components

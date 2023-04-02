@@ -1,4 +1,4 @@
-package ittia2.panelgil;
+package je.panse.doro.ittia2.panelgil;
 
 public class NewCategory {
 

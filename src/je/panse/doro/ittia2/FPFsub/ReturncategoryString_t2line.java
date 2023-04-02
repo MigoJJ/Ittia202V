@@ -1,4 +1,4 @@
-package ittia2.FPFsub;
+package je.panse.doro.ittia2.FPFsub;
 
 public class ReturncategoryString_t2line {
 	static String returnta = null;

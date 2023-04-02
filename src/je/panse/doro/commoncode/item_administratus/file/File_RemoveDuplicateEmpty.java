@@ -1,12 +1,15 @@
-package commoncode.item_administratus.file;
+package je.panse.doro.commoncode.item_administratus.file;
 
-import javax.swing.*;
-
-import ittia2.FPFsub.PFPpanelcategory;
-import singlebeam.EntryDir;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
+
+import je.panse.doro.singlebeam.EntryDir;
 
 public class File_RemoveDuplicateEmpty extends EntryDir{
 	public static void main() {

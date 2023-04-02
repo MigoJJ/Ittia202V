@@ -1,4 +1,4 @@
-package commoncode.item_administratus;
+package je.panse.doro.commoncode.item_administratus;
 
 import java.io.IOException;
 import java.io.InputStream;

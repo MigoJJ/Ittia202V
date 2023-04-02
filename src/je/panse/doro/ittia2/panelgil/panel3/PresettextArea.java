@@ -1,11 +1,10 @@
-package ittia2.panelgil.panel3;
+package je.panse.doro.ittia2.panelgil.panel3;
 
-import java.io.IOException;	
-
-import commoncode.item_administratus.file.ChartplateCreator;
-import ittia2.FPF;
-import singlebeam.EntryDir;
 import java.io.FileWriter;
+import java.io.IOException;
+import je.panse.doro.commoncode.item_administratus.file.ChartplateCreator;
+import je.panse.doro.ittia2.FPF;
+import je.panse.doro.singlebeam.EntryDir;
 
 public class PresettextArea extends FPF{
 	public static void writeToCategory(int index, String taString) throws IOException {

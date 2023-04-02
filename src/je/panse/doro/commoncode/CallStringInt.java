@@ -1,9 +1,9 @@
-package commoncode;
+package je.panse.doro.commoncode;
 
-import java.io.*;
-import commoncode.item_administratus.file.SvaePresentCilp;
-import ittia2.FPF;
-import ittia2.FPFsub.ReturncatergoryList;
+import java.io.IOException;
+import je.panse.doro.commoncode.item_administratus.file.SvaePresentCilp;
+import je.panse.doro.ittia2.FPF;
+import je.panse.doro.ittia2.FPFsub.ReturncatergoryList;
 
 public class CallStringInt extends FPF {
 	public static String replaceStr(int index, String args) throws IOException {

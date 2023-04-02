@@ -1,4 +1,4 @@
-package commoncode;
+package je.panse.doro.commoncode;
 
 import java.io.IOException;
 

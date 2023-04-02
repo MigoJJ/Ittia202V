@@ -1,15 +1,30 @@
-package fourgate.ccpipmh;
+package je.panse.doro.fourgate.ccpipmh;
 
-import javax.swing.*;	
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-
-import commoncode.item_administratus.file.SvaePresentCilp;
-import singlebeam.EntryDir;
-
-import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
+import je.panse.doro.commoncode.item_administratus.file.SvaePresentCilp;
+import je.panse.doro.singlebeam.EntryDir;
 
 public class EMRCC extends JFrame implements ActionListener, DocumentListener {
     private JTextField[] textFields;

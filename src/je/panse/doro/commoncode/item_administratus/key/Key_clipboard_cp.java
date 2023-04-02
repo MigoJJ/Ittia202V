@@ -1,15 +1,16 @@
-package commoncode.item_administratus.key;
+package je.panse.doro.commoncode.item_administratus.key;
 
-import java.io.BufferedReader;		
-import java.io.FileReader;
-import java.io.IOException;
-import singlebeam.EntryDir;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+import je.panse.doro.singlebeam.EntryDir;
 
 public class Key_clipboard_cp extends EntryDir{
 	public static void main(String[] args) {

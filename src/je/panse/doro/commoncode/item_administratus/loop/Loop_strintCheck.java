@@ -1,4 +1,4 @@
-package commoncode.item_administratus.loop;
+package je.panse.doro.commoncode.item_administratus.loop;
 
 public class Loop_strintCheck {
 

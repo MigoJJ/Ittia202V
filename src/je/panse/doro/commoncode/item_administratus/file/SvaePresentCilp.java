@@ -1,4 +1,4 @@
-package commoncode.item_administratus.file;
+package je.panse.doro.commoncode.item_administratus.file;
 
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
@@ -7,8 +7,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import ittia2.FPF;
-import singlebeam.EntryDir;
+
+import je.panse.doro.ittia2.FPF;
+import je.panse.doro.singlebeam.EntryDir;
 
 public class SvaePresentCilp extends FPF{
 	public static void saveToFile(int targetfileindex, String args) throws IOException {

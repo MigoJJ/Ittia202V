@@ -1,11 +1,10 @@
-package ittia2.FPFsub;
+package je.panse.doro.ittia2.FPFsub;
 
-import java.io.BufferedReader;	
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
-import ittia2.FPF;
-import singlebeam.EntryDir;
+import je.panse.doro.ittia2.FPF;
+import je.panse.doro.singlebeam.EntryDir;
 
 public class PFPpanelcategory extends FPF {
     public static String panelcategory(int index) {

@@ -1,12 +1,10 @@
-package ittia2.FPFsub;
+package je.panse.doro.ittia2.FPFsub;
 
 import java.io.IOException;
-
-import commoncode.item_administratus.file.SvaePresentCilp;
-import fourgate.ccpipmh.EMRCC;
-import fourgate.ccpipmh.EMRPMH;
-import fourgate.objective.BMICalculator;
-import ittia2.FPF;
+import je.panse.doro.fourgate.ccpipmh.EMRCC;
+import je.panse.doro.fourgate.ccpipmh.EMRPMH;
+import je.panse.doro.fourgate.objective.BMICalculator;
+import je.panse.doro.ittia2.FPF;
 
 public class ReturncatergoryList extends FPF{
 	public static String returncategorylist(int index, int numInput, String taString) throws IOException {

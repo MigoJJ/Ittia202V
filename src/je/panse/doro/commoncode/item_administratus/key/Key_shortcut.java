@@ -1,4 +1,4 @@
-package commoncode.item_administratus.key;
+package je.panse.doro.commoncode.item_administratus.key;
 
 
 public class Key_shortcut {
