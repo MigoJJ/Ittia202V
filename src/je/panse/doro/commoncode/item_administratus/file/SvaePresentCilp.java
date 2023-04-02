@@ -21,10 +21,10 @@ public class SvaePresentCilp extends FPF{
 	}
 	
 	public static void writeString() throws IOException{
+		textAreas[2].setText("");
 		ChartplateCreator.chartplateCreator();
 		BufferedReader reader = new BufferedReader(new FileReader(EntryDir.cpfPath));
 			String line;
-			textAreas[2].setText("");
 			while ((line = reader.readLine()) != null) {
 					textAreas[2].append(line + "\n");
 		}

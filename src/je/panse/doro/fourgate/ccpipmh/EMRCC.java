@@ -105,18 +105,12 @@ public class EMRCC extends JFrame implements ActionListener, DocumentListener {
         String command = e.getActionCommand();
         if (command.equals("Save and Quit")) {
             // Save the data and quit
-            try {
-                BufferedWriter writer = new BufferedWriter(new FileWriter(EntryDir.workingDir+ "/3CC",true));
-//                for (JTextField textField : textFields) {
-//                    writer.write(textField.getText());
-//                    writer.newLine();
-//                }
-                writer.write(textArea.getText());
-                writer.close();
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(this, "Error saving data", "Error", JOptionPane.ERROR_MESSAGE
-                        );
-            }
+			try {
+				SvaePresentCilp.saveToFile(0,"\t" + textArea.getText());
+			} catch (IOException ex) {
+			    JOptionPane.showMessageDialog(this, "Error saving data", "Error", JOptionPane.ERROR_MESSAGE
+            );
+			}
 
         } else if (command.equals("Clear Data and Restart")) {
             // Clear the text fields and text area
@@ -124,12 +118,6 @@ public class EMRCC extends JFrame implements ActionListener, DocumentListener {
                 textField.setText("");
             }
         }
-		try {
-			SvaePresentCilp.saveToFile(0,"\t" + textArea.getText());
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
        textArea.setText("");
 		dispose();
     }
