@@ -1,6 +1,6 @@
 package je.panse.doro.ittia2;
 
-import java.awt.*;	
+import java.awt.*;		
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
