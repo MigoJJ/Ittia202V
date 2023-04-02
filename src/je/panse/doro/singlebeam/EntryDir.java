@@ -4,6 +4,7 @@ import je.panse.doro.commoncode.DirCopy;
 import je.panse.doro.ittia2.FPF;
 
 public class EntryDir {
+	
 	public static final String currentUsersDir = System.getProperty("user.dir");
 	public static final String currentUsersHomeDir = System.getProperty("user.home");
 	public static final String homeDir = currentUsersDir + "/src/je/panse/doro";
