@@ -100,7 +100,7 @@ public class EMRPMH extends JFrame implements ActionListener {
             pmhxTextArea.append(sb.toString());
 
             try {
-				BufferedWriter writer = new BufferedWriter(new FileWriter(EntryDir.workingDir+ "/4PMH"));
+				BufferedWriter writer = new BufferedWriter(new FileWriter(EntryDir.workingDir+ "/3PMH"));
 				//BufferedWriter writer = new BufferedWriter(new FileWriter(EntryDir.workingDir+ "/4PMH",true));
 				// Write the contents of the text area to the file
 				writer.write(pmhxTextArea.getText());
