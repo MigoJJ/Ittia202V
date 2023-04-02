@@ -1,6 +1,6 @@
 package je.panse.doro.singlebeam;
 
-import je.panse.doro.commoncode.DirCopy;
+import je.panse.doro.commoncode.DirCopy;	
 import je.panse.doro.ittia2.FPF;
 
 public class EntryDir {

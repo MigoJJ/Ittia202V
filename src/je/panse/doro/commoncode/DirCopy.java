@@ -1,10 +1,9 @@
 package je.panse.doro.commoncode;
 
-import java.io.File;
+import java.io.File;	
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
-
 import je.panse.doro.commoncode.item_administratus.file.ChartplateCreator;
 import je.panse.doro.singlebeam.EntryDir;
 
