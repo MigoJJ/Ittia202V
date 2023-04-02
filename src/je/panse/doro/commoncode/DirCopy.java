@@ -16,11 +16,7 @@ public class DirCopy {
             File backupDirectory = new File(EntryDir.backupDir);
             
             // Make sure directories exist
-            if (!sourceDirectory.exists() || !workingDirectory.exists() || !backupDirectory.exists()) {
-                System.out.println("One or more directories does not exist");
-                return;
-            }
-            
+          
             for (String fileName : sourceDirectory.list()) {
                 File sourceFile = new File(sourceDirectory.getAbsolutePath() + "/" + fileName);
                 File destinationFile = new File(workingDirectory.getAbsolutePath() + "/" + fileName);

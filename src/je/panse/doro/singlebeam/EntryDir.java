@@ -17,8 +17,8 @@ public class EntryDir {
 
 	public static void main(String[] args) {
     	DirCopy.main(null);
-    	System.out.println("workingDir >>  " + workingDir);
-    	System.out.println("cpfPath  >> " + cpfPath);
+//    	System.out.println("workingDir >>  " + workingDir);
+//    	System.out.println("cpfPath  >> " + cpfPath);
     	FPF.main(args);
 	}
 }

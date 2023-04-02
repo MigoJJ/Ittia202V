@@ -1,11 +1,42 @@
-					textAreas[2].append(line + "\n");
-		}
-		reader.close();
-		saveToClipboard();
-   	}
-		
-    public static void saveToClipboard() throws IOException {
-	    StringSelection stringSelection = new StringSelection(textAreas[2].getText());
-	    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-	    clipboard.setContents(stringSelection, null);
-    }
+=== 3CC ===
+Hypertension
+3 days ago
+
+
+	Hypertension
+3 days ago
+
+
+
+
+
+=== 3PI ===
+
+
+=== 3PMH ===
+
+
+=== 3ROS ===
+
+
+=== 5SUJ ===
+
+
+=== 6OBJ ===
+	BMI:[ 24.5 ]/kg/m2   weight:[ 75.0 ]kg    height:[ 175.0 ]cm
+	Waist: 99.0 cm
+
+
+=== 7LAB ===
+
+
+=== 8ASS ===
+	#  Healthy Weight[ 24.5 ]BMI 2023.04.02
+
+
+=== 9PLAN ===
+
+
+=== 10COMMENT ===
+
+
