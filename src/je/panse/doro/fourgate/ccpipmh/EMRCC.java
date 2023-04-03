@@ -40,11 +40,13 @@ public class EMRCC extends JFrame implements ActionListener, DocumentListener {
                 "Onset : (days/ months/ years ago) : ",
                 "Duration : (days/ months/ years) : ",
                 "State of Health (Excellent/Good/Fair/Poor) : "};
-        
+
         System.out.println(" labelsi >>>  " + labels);
 
-
         textFields = new JTextField[labels.length];
+
+        
+        
         JPanel textFieldsPanel = new JPanel(new GridLayout(labels.length, 2));
         for (int i = 0; i < labels.length; i++) {
             JLabel label = new JLabel(labels[i]);
@@ -70,16 +72,6 @@ public class EMRCC extends JFrame implements ActionListener, DocumentListener {
                     }
                 }
             });
-
-            System.out.println(" i >>>  " + i);
-            System.out.println(" textFieldi >>>  " + textField);
-            System.out.println(" textFields[i] >>>  " + textFields[i].toString());
-         
-            String textF = textField.getText();
-            System.out.println(" textF  >>>  " + textF);
-
-            
-            
             textFieldsPanel.add(textField);
         }
         // Create the text area

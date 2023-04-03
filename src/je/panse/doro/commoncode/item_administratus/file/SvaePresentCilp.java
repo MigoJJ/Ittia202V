@@ -23,6 +23,7 @@ public class SvaePresentCilp extends FPF{
 	public static void writeString() throws IOException{
 		textAreas[2].setText("");
 		ChartplateCreator.chartplateCreator();
+		File_RemoveDuplicateEmpty.main();
 		BufferedReader reader = new BufferedReader(new FileReader(EntryDir.cpfPath));
 			String line;
 			while ((line = reader.readLine()) != null) {
