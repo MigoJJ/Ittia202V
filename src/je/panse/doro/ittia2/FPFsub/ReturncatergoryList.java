@@ -53,10 +53,7 @@ public class ReturncatergoryList extends FPF{
 					EMRPI.main(null);
 					textAreas[2].setText("");
 					PFPpanelcategory.panelcategory(2);
-					
 				}
-				
-				
 			case 9:
 			case 99:
 				textAreas[index].setText(A);
