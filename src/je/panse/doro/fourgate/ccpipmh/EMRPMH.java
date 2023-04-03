@@ -1,13 +1,11 @@
 package je.panse.doro.fourgate.ccpipmh;
 
-import java.awt.BorderLayout;
+import java.awt.BorderLayout;	
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JButton;
@@ -18,7 +16,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import je.panse.doro.commoncode.item_administratus.file.SvaePresentCilp;
-import je.panse.doro.singlebeam.EntryDir;
 
 public class EMRPMH extends JFrame implements ActionListener {
 
@@ -84,12 +81,11 @@ public class EMRPMH extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e){
         if (e.getActionCommand().equals("Save and Show")) {
-
             StringBuilder sb = new StringBuilder();
             sb.append("Past Medical History:\n");
             for (JCheckBox checkbox : checkBoxList) {
                 if (checkbox.isSelected()) {
-                    sb.append("☑ ");
+                    sb.append("▸ ");
                 } else {
                     sb.append("☐ ");
                 }
@@ -99,38 +95,24 @@ public class EMRPMH extends JFrame implements ActionListener {
             sb.append("\n---------------------------------\n");
             pmhxTextArea.append(sb.toString());
 
-            try {
-				BufferedWriter writer = new BufferedWriter(new FileWriter(EntryDir.workingDir+ "/3PMH"));
-				//BufferedWriter writer = new BufferedWriter(new FileWriter(EntryDir.workingDir+ "/4PMH",true));
-				// Write the contents of the text area to the file
-				writer.write(pmhxTextArea.getText());
-				// Close the writer
-				writer.close();
-				// Show a message to the user indicating that the save was successful
-				JOptionPane.showMessageDialog(null, "File saved successfully.");
-        	} catch (IOException ex) {
-        	    // Show an error message to the user indicating that the save failed
-        	    JOptionPane.showMessageDialog(null, "Error saving file: " + ex.getMessage());
-        	}
-			} else if (e.getActionCommand().equals("Clear and Restart")) {
-			    pmhxTextArea.setText("");
-			    for (JCheckBox checkbox : checkBoxList) {
-			        checkbox.setSelected(false);
-			    }
-				dispose();
-			    
-			} else if (e.getActionCommand().equals("Save and Quit")) {
-			    // TODO: Implement save and quit functionality
-			    JOptionPane.showMessageDialog(this, "Save and Quit not yet implemented.");
-				dispose();
-				try {
-					SvaePresentCilp.saveToFile(2,"\t" + pmhxTextArea.getText());
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			    }
+		} else if (e.getActionCommand().equals("Clear and Restart")) {
+		    pmhxTextArea.setText("");
+		    for (JCheckBox checkbox : checkBoxList) {
+		        checkbox.setSelected(false);
+		    }
+		    
+		} else if (e.getActionCommand().equals("Save and Quit")) {
+			try {
+				SvaePresentCilp.saveToFile(2,"\t" + pmhxTextArea.getText());
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
+		    // TODO: Implement save and quit functionality
+		    JOptionPane.showMessageDialog(this, "Save and Quit not yet implemented.");
+			dispose();
+		}
+	}
     public static void main(String[] args) throws IOException {
         EMRPMH gui = new EMRPMH();
 //        gui.actionPerformed(new ActionEvent(gui, 0, "Save and Show"));

@@ -2,6 +2,8 @@ package je.panse.doro.commoncode;
 
 import java.io.IOException;
 
+import javax.swing.JTextField;
+
 public class Readacronym {
     public static String readSentence(String args) throws IOException {
     	String[] words = args.split(" "); // Split the string into an array of words

@@ -24,11 +24,11 @@ import javax.swing.event.DocumentListener;
 import je.panse.doro.commoncode.Readacronym;
 import je.panse.doro.commoncode.item_administratus.file.SvaePresentCilp;
 
-public class EMRCC extends JFrame implements ActionListener, DocumentListener {
+public class EMRCC2 extends JFrame implements ActionListener, DocumentListener {
     private JTextField[] textFields;
     private JTextArea textArea;
 
-    public EMRCC() throws IOException {
+    public EMRCC2() throws IOException {
         // Set up the window
         setTitle("Electronic Medical Record Interface");
         setSize(1200, 800);
@@ -40,9 +40,6 @@ public class EMRCC extends JFrame implements ActionListener, DocumentListener {
                 "Onset : (days/ months/ years ago) : ",
                 "Duration : (days/ months/ years) : ",
                 "State of Health (Excellent/Good/Fair/Poor) : "};
-        
-        System.out.println(" labelsi >>>  " + labels);
-
 
         textFields = new JTextField[labels.length];
         JPanel textFieldsPanel = new JPanel(new GridLayout(labels.length, 2));
@@ -52,11 +49,9 @@ public class EMRCC extends JFrame implements ActionListener, DocumentListener {
             textFieldsPanel.add(label);
             JTextField textField = new JTextField();
             textField.getDocument().addDocumentListener(this); // Add a DocumentListener
-            textField.getDocument().addDocumentListener(this); // Add a DocumentListener
-
             textFields[i] = textField;
             textFields[i].setHorizontalAlignment(JTextField.CENTER);
-
+            
             final int index = i;
             textFields[i].addKeyListener(new KeyAdapter() {
                 public void keyPressed(KeyEvent e) {
@@ -71,17 +66,9 @@ public class EMRCC extends JFrame implements ActionListener, DocumentListener {
                 }
             });
 
-            System.out.println(" i >>>  " + i);
-            System.out.println(" textFieldi >>>  " + textField);
-            System.out.println(" textFields[i] >>>  " + textFields[i].toString());
-         
-            String textF = textField.getText();
-            System.out.println(" textF  >>>  " + textF);
-
-            
-            
             textFieldsPanel.add(textField);
         }
+
         // Create the text area
         JLabel textAreaLabel = new JLabel("< Chief complaint Chart Plate >");
 	//        textArea = new JTextArea(5, 20);
@@ -104,7 +91,6 @@ public class EMRCC extends JFrame implements ActionListener, DocumentListener {
 	        buttonsPanel.add(saveAndQuitButton);
 	        buttonsPanel.add(clearDataButton);
 
-	        
         // Add everything to the window
         Container contentPane = getContentPane();
         contentPane.add(textFieldsPanel, BorderLayout.CENTER);
@@ -118,10 +104,9 @@ public class EMRCC extends JFrame implements ActionListener, DocumentListener {
             // Save the data and quit
 			try {
 				SvaePresentCilp.saveToFile(0,"\t" + textArea.getText());
-				dispose();
 			} catch (IOException ex) {
-			    JOptionPane.showMessageDialog(this, 
-			    		"Error saving data", "Error", JOptionPane.ERROR_MESSAGE);
+			    JOptionPane.showMessageDialog(this, "Error saving data", "Error", JOptionPane.ERROR_MESSAGE
+            );
 			}
 
         } else if (command.equals("Clear Data and Restart")) {
@@ -141,7 +126,14 @@ public class EMRCC extends JFrame implements ActionListener, DocumentListener {
 		for (JTextField textField : textFields) {
 		    newText += textField.getText() + "\n";
 		}
+					
 		System.out.println("newText >>>  " + newText);
+		try {
+					Readacronym.readSentence(newText);
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 	   textArea.setText(newText);
 	}
 
@@ -154,7 +146,7 @@ public class EMRCC extends JFrame implements ActionListener, DocumentListener {
     }
     
     public static void main(String[] args) throws IOException {
-        EMRCC emr = new EMRCC();
+        EMRCC2 emr = new EMRCC2();
         emr.setVisible(true);
     }
 }
