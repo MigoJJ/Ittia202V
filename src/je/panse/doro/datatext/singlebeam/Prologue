@@ -1,0 +1,24 @@
+   That sounds like a great project! Developing an EMR (Electronic Medical Record) 
+input interface can be a complex task, but with the right team and tools, it can 
+be done efficiently and effectively.
+
+   To get started, you'll want to assemble a team with the necessary skills, 
+including software developers, user experience designers, and perhaps healthcare 
+professionals with experience using EMRs. Depending on your budget and resources, 
+you may choose to hire a development company or work with freelance developers.
+
+   As for tools, there are many software development frameworks and libraries 
+that can help you build an EMR input interface. Some popular options include Java 
+with Swing or JavaFX for the front-end, and Spring or Hibernate for the back-end. 
+Additionally, there are specific healthcare-related libraries and standards 
+like HL7 and FHIR that you may need to incorporate into your project.
+
+   Before beginning development, it's important to research and comply with relevant 
+healthcare regulations and standards, such as HIPAA in the United States. You'll also 
+want to conduct thorough testing and validation to ensure that your interface is safe, 
+secure, and user-friendly.
+
+   Overall, developing an EMR input interface can be a challenging but rewarding project 
+that has the potential to improve the efficiency and quality of healthcare. Good luck!
+
+2023.04.03 from chatGPT...~~ 
