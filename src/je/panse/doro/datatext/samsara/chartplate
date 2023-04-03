@@ -1,34 +1,28 @@
 === 3CC ===
-	123456
-=== 3PI ===
 	123
-456
-123
-=== 3CC ====== 3CC ====== 3CC ====== 3CC ===
-zfhdfh
-	2015afgadf
-dx
-tx
-Amaryl-M
+=== 3PI ===
+			12. Symptom
+		13. ROS 
+	2.   Past Medical History
+	3.   Subjective Complaint
+	4.   Objective Findings
+	5.   Laboratory Test
+	6.   Assessment 
 === 3PMH ===
 	Past Medical History:
-☐ Diabetes Mellitus	▸ HTN	☐ Dyslipidemia
+☐ Diabetes Mellitus	☐ HTN	☐ Dyslipidemia
 	☐ Cancer	☐ Operation	☐ Thyroid Disease
 	☐ Asthma	☐ Tuberculosis	☐ Pneumonia
 	☐ Chronic/Acute Hepatitis	☐ GERD	☐ Gout
 	☐ Arthritis	☐ Hearing Loss	☐ CVA
 	☐ Depression	☐ Cognitive Disorder
 	☐ Allergy
-	☐ Food	☐ Injection	☐ Medication	
+	▸ Food	☐ Injection	☐ Medication	
 ---------------------------------
-	☐ Food	▸ Injection	☐ Medication	
 === 3ROS ===
 === 5SUJ ===
 === 6OBJ ===
-	BMI:[ 24.3 ]/kg/m2   weight:[ 77.0 ]kg    height:[ 178.0 ]cm
-	Waist: 99.0 cm
 === 7LAB ===
 === 8ASS ===
-	#  Healthy Weight[ 24.3 ]BMI 2023.04.03
 === 9PLAN ===
 === 10COMMENT ===
