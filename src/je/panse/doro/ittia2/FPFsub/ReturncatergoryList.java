@@ -5,6 +5,7 @@ import je.panse.doro.fourgate.ccpipmh.EMRCC;
 import je.panse.doro.fourgate.ccpipmh.EMRPMH;
 import je.panse.doro.fourgate.objective.BMICalculator;
 import je.panse.doro.ittia2.FPF;
+import je.panse.doro.singlebeam.EntryDir;
 
 public class ReturncatergoryList extends FPF{
 	public static String returncategorylist(int index, int numInput, String taString) throws IOException {
@@ -12,7 +13,6 @@ public class ReturncatergoryList extends FPF{
 		String B = ReturncategoryString.ncmObj(null);
 		String C = ReturncategoryString.ncmLab(null);
 		String D = ReturncategoryString_t2line.ncmChief(null);
-			
 		
 		switch (numInput) {
 			case 1:
@@ -33,7 +33,6 @@ public class ReturncatergoryList extends FPF{
 					EMRPMH.main(null);
 					textAreas[2].setText("");
 					PFPpanelcategory.panelcategory(2);
-					
 				} 
 			case 4:
 				if (textAreas[index].getText().contains("[ New Category ]")) {
@@ -51,11 +50,13 @@ public class ReturncatergoryList extends FPF{
 			case 99:
 				textAreas[index].setText(A);
 				break;
+			case 999:
+				Runtime.getRuntime().exec("java -cp "+ EntryDir.currentUsersDir +"/bin je.panse.doro.singlebeam.EntryIttia2");
+				break;				
 			default:
 				textAreas[index].setText(A);
 				break;
 		}
-		
 		return textAreas[index].getText().trim();
     }
 }
