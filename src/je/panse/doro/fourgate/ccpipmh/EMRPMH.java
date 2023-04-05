@@ -82,7 +82,7 @@ public class EMRPMH extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e){
         if (e.getActionCommand().equals("Save and Show")) {
             StringBuilder sb = new StringBuilder();
-            sb.append("Past Medical History:\n");
+            sb.append("Past Medical History:\n\t");
             for (JCheckBox checkbox : checkBoxList) {
                 if (checkbox.isSelected()) {
                     sb.append("▸ ");
