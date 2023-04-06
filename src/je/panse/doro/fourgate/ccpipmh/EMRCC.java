@@ -1,142 +1,153 @@
 package je.panse.doro.fourgate.ccpipmh;
 
-import java.awt.BorderLayout;	
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.io.IOException;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import je.panse.doro.commoncode.item_administratus.file.SvaePresentCilp;
 
-public class EMRCC extends JFrame implements ActionListener, DocumentListener {
-    private JTextField[] textFields;
-    private JTextArea textArea;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+
+public class EMRCC extends JFrame implements ActionListener {
+    private JTextArea inputArea1, inputArea2, outputArea;
+    private JButton clearButton, saveButton, saveAndQuitButton;
 
     public EMRCC() {
-        // Set up the window
-        setTitle("Electronic Medical Record Interface");
-        setSize(1200, 800);
-        setLocationRelativeTo(null);
+        // set up the JFrame
+        setTitle("EMR Interface");
+        setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Create the text fields
-        String[] labels = {"Chief Complaint : ",
-                "Onset : (days/ months/ years ago) : ",
-                "Duration : (days/ months/ years) : ",
-                "State of Health (Excellent/Good/Fair/Poor) : "};
+        // create the input JTextAreas and label them
+        inputArea1 = new JTextArea();
+        inputArea1.setBorder(BorderFactory.createTitledBorder("CC>"));
+        inputArea1.setBackground(new Color(255, 255, 204)); // very light yellow
+        inputArea2 = new JTextArea();
+        inputArea2.setBorder(BorderFactory.createTitledBorder("PI>"));
+        inputArea2.setBackground(new Color(255, 255, 153)); // light yellow
 
-        textFields = new JTextField[labels.length];
-        JPanel textFieldsPanel = new JPanel(new GridLayout(labels.length, 2));
-        for (int i = 0; i < labels.length; i++) {
-            JLabel label = new JLabel(labels[i]);
-            label.setHorizontalAlignment(SwingConstants.RIGHT);
-            textFieldsPanel.add(label);
-            JTextField textField = new JTextField();
-            textField.getDocument().addDocumentListener(this); // Add a DocumentListener
-            textFields[i] = textField;
-            textFields[i].setHorizontalAlignment(JTextField.CENTER);
+        // create the output JTextArea and label it
+        outputArea = new JTextArea();
+        outputArea.setBorder(BorderFactory.createTitledBorder("TEMP edit>"));
+        outputArea.setBackground(new Color(255, 204, 0)); // dark yellow
 
-            final int index = i;
-            textFields[i].addKeyListener(new KeyAdapter() {
-                public void keyPressed(KeyEvent e) {
-                    if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                        int next = index + 1;
-                        if (next < textFields.length) {
-                            textFields[next].requestFocus();
-                        } else {
-                            textArea.requestFocus();
-                        }
-                    }
-                }
-            });
-
-            textFieldsPanel.add(textField);
-        }
-
-        // Create the text area
-        JLabel textAreaLabel = new JLabel("< Chief complaint Chart Plate >");
-	//        textArea = new JTextArea(5, 20);
-	        textArea = new JTextArea();
-	        textArea.setPreferredSize(new Dimension(200, 200));
-	        textArea.setEditable(true);
-	        JScrollPane scrollPane = new JScrollPane(textArea);
-		        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		        JPanel textAreaPanel = new JPanel(new BorderLayout());
-		        textAreaPanel.add(textAreaLabel, BorderLayout.NORTH);
-		        textAreaPanel.add(scrollPane, BorderLayout.CENTER);
-
-        // Create the buttons
-        JButton saveAndQuitButton = new JButton("Save and Quit");
-	        saveAndQuitButton.addActionListener(this);
-	        saveAndQuitButton.setPreferredSize(new Dimension(150, 50));
-	        JButton clearDataButton = new JButton("Clear Data and Restart");
-	        clearDataButton.addActionListener(this);
-	        JPanel buttonsPanel = new JPanel(new GridLayout(1, 2));
-	        buttonsPanel.add(saveAndQuitButton);
-	        buttonsPanel.add(clearDataButton);
-
-        // Add everything to the window
-        Container contentPane = getContentPane();
-        contentPane.add(textFieldsPanel, BorderLayout.CENTER);
-        contentPane.add(textAreaPanel, BorderLayout.NORTH);
-        contentPane.add(buttonsPanel, BorderLayout.SOUTH);
         
-    }
+        inputArea1.setPreferredSize(new Dimension(200, 200));
+        inputArea2.setPreferredSize(new Dimension(100, 200));
+        outputArea.setPreferredSize(new Dimension(300, 200));
+        
+        // create the buttons
+        clearButton = new JButton("Clear");
+        clearButton.addActionListener(this);
+        saveButton = new JButton("Save");
+        saveButton.addActionListener(this);
+        saveAndQuitButton = new JButton("Save and Quit");
+        saveAndQuitButton.addActionListener(this);
+//
+//        // create a JPanel to hold the input JTextAreas
+        JPanel inputPanel = new JPanel(new GridLayout(3, 1));
+//        inputPanel.add(inputArea1);
+//        inputPanel.add(inputArea2);
+//        inputPanel.add(outputArea);
+     // create a JPanel to hold the input JTextAreas
+//        JPanel inputPanel = new JPanel(new BorderLayout());
+        inputPanel.add(inputArea1, BorderLayout.CENTER);
+        inputPanel.add(inputArea2, BorderLayout.CENTER);
+        inputPanel.add(outputArea, BorderLayout.CENTER);
 
-    public void actionPerformed(ActionEvent e) {
-        String command = e.getActionCommand();
-        if (command.equals("Save and Quit")) {
-            // Save the data and quit
-			try {
-				SvaePresentCilp.saveToFile(0,"\t" + textArea.getText());
-			} catch (IOException ex) {
-			    JOptionPane.showMessageDialog(this, "Error saving data", "Error", JOptionPane.ERROR_MESSAGE
-            );
-			}
+        // create a JPanel to hold the output JTextArea and add it to a scroll pane
+        JScrollPane scrollPane = new JScrollPane(outputArea);
+        JPanel outputPanel = new JPanel(new BorderLayout());
+        outputPanel.add(new JLabel("Output:"), BorderLayout.CENTER);
+        outputPanel.add(scrollPane, BorderLayout.CENTER);
+        outputPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        } else if (command.equals("Clear Data and Restart")) {
-            // Clear the text fields and text area
-            for (JTextField textField : textFields) {
-                textField.setText("");
+        // create a JPanel to hold the buttons
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        buttonPanel.add(clearButton);
+        buttonPanel.add(saveButton);
+        buttonPanel.add(saveAndQuitButton);
+
+        // add the input and output panels to the JFrame
+        add(inputPanel, BorderLayout.CENTER);
+        add(outputPanel, BorderLayout.NORTH);
+        add(buttonPanel, BorderLayout.PAGE_END);
+
+        // show the JFrame
+        setVisible(true);
+    
+    	
+
+     	// add a DocumentListener to inputArea1
+        inputArea1.getDocument().addDocumentListener(new DocumentListener() {
+            public void changedUpdate(DocumentEvent e) {
+                updateOutput();
             }
+            public void removeUpdate(DocumentEvent e) {
+                updateOutput();
+            }
+            public void insertUpdate(DocumentEvent e) {
+                updateOutput();
+            }
+            private void updateOutput() {
+//                outputArea.setText(inputArea1.getText());
+                outputArea.setText(inputArea1.getText() + "\n" + inputArea2.getText());
+
+            }
+        });
+        inputArea2.getDocument().addDocumentListener(new DocumentListener() {
+            public void changedUpdate(DocumentEvent e) {
+                updateOutput();
+            }
+            public void removeUpdate(DocumentEvent e) {
+                updateOutput();
+            }
+            public void insertUpdate(DocumentEvent e) {
+                updateOutput();
+            }
+            private void updateOutput() {
+//                outputArea.setText(inputArea2.getText());
+                outputArea.setText(inputArea1.getText() + "\n" + inputArea2.getText());
+
+            }
+        });
+
+	}
+    
+    // handle button clicks
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == clearButton) {
+            inputArea1.setText("");
+            inputArea2.setText("");
+            outputArea.setText("");
+        } else if (e.getSource() == saveButton) {
+            saveToFile(false);
+        } else if (e.getSource() == saveAndQuitButton) {
+            saveToFile(true);
+            System.exit(0);
         }
-       textArea.setText("");
-		dispose();
     }
-
-    public void insertUpdate(DocumentEvent e) {
-        // Update the text area with the new values
-        String newText = "";
-        for (JTextField textField : textFields) {
-            newText += textField.getText() + "\n";
+    // save the input text to a file
+    private void saveToFile(boolean quit) {
+        String filename = "emr_data.txt";
+        String input1 = inputArea1.getText();
+        String input2 = inputArea2.getText();
+        String output = outputArea.getText();
+        try {
+            PrintWriter writer = new PrintWriter(new FileWriter(filename, true));
+            writer.println("Input 1: " + input1);
+            writer.println("Input 2: " + input2);
+            writer.println("Output: " + output);
+            writer.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
-        textArea.setText(newText);
-    }
-
-    public void removeUpdate(DocumentEvent e) {
-        // Do nothing
-    }
-
-    public void changedUpdate(DocumentEvent e) {
-        // Do nothing
+        if (quit) {
+            System.exit(0);
+        }
     }
     
     public static void main(String[] args) {
         EMRCC emr = new EMRCC();
-        emr.setVisible(true);
     }
 }
