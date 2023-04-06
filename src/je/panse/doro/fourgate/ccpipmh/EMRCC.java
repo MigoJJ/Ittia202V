@@ -11,13 +11,13 @@ import java.io.*;
 public class EMRCC extends JFrame implements ActionListener {
     private JTextArea inputArea1, inputArea2, outputArea;
     private JButton clearButton, saveButton, saveAndQuitButton;
-    
+
     public EMRCC() {
         // set up the JFrame
         setTitle("EMR Interface");
         setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
         // create the input JTextAreas and label them
         inputArea1 = new JTextArea();
         inputArea1.setBorder(BorderFactory.createTitledBorder("CC>"));
@@ -25,11 +25,16 @@ public class EMRCC extends JFrame implements ActionListener {
         inputArea2 = new JTextArea();
         inputArea2.setBorder(BorderFactory.createTitledBorder("PI>"));
         inputArea2.setBackground(new Color(255, 255, 153)); // light yellow
-        
+
         // create the output JTextArea and label it
         outputArea = new JTextArea();
         outputArea.setBorder(BorderFactory.createTitledBorder("TEMP edit>"));
         outputArea.setBackground(new Color(255, 204, 0)); // dark yellow
+
+        
+        inputArea1.setPreferredSize(new Dimension(200, 200));
+        inputArea2.setPreferredSize(new Dimension(100, 200));
+        outputArea.setPreferredSize(new Dimension(300, 200));
         
         // create the buttons
         clearButton = new JButton("Clear");
@@ -38,34 +43,42 @@ public class EMRCC extends JFrame implements ActionListener {
         saveButton.addActionListener(this);
         saveAndQuitButton = new JButton("Save and Quit");
         saveAndQuitButton.addActionListener(this);
-        
-        // create a JPanel to hold the input JTextAreas
+//
+//        // create a JPanel to hold the input JTextAreas
         JPanel inputPanel = new JPanel(new GridLayout(3, 1));
-        inputPanel.add(inputArea1);
-        inputPanel.add(inputArea2);
+//        inputPanel.add(inputArea1);
+//        inputPanel.add(inputArea2);
+//        inputPanel.add(outputArea);
+     // create a JPanel to hold the input JTextAreas
+//        JPanel inputPanel = new JPanel(new BorderLayout());
+        inputPanel.add(inputArea1, BorderLayout.CENTER);
+        inputPanel.add(inputArea2, BorderLayout.CENTER);
+        inputPanel.add(outputArea, BorderLayout.CENTER);
 
         // create a JPanel to hold the output JTextArea and add it to a scroll pane
         JScrollPane scrollPane = new JScrollPane(outputArea);
         JPanel outputPanel = new JPanel(new BorderLayout());
-        outputPanel.add(new JLabel(BorderLayout.CENTER));
+        outputPanel.add(new JLabel("Output:"), BorderLayout.CENTER);
         outputPanel.add(scrollPane, BorderLayout.CENTER);
         outputPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        
+
         // create a JPanel to hold the buttons
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         buttonPanel.add(clearButton);
         buttonPanel.add(saveButton);
         buttonPanel.add(saveAndQuitButton);
-        
+
         // add the input and output panels to the JFrame
-        add(inputPanel, BorderLayout.NORTH);
-        add(outputPanel, BorderLayout.CENTER);
+        add(inputPanel, BorderLayout.CENTER);
+        add(outputPanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.PAGE_END);
-        
+
         // show the JFrame
         setVisible(true);
-        
-     // add a DocumentListener to inputArea1
+    
+    	
+
+     	// add a DocumentListener to inputArea1
         inputArea1.getDocument().addDocumentListener(new DocumentListener() {
             public void changedUpdate(DocumentEvent e) {
                 updateOutput();
@@ -77,7 +90,9 @@ public class EMRCC extends JFrame implements ActionListener {
                 updateOutput();
             }
             private void updateOutput() {
-                outputArea.setText(inputArea1.getText());
+//                outputArea.setText(inputArea1.getText());
+                outputArea.setText(inputArea1.getText() + "\n" + inputArea2.getText());
+
             }
         });
         inputArea2.getDocument().addDocumentListener(new DocumentListener() {
@@ -91,11 +106,13 @@ public class EMRCC extends JFrame implements ActionListener {
                 updateOutput();
             }
             private void updateOutput() {
-                outputArea.setText(inputArea2.getText());
+//                outputArea.setText(inputArea2.getText());
+                outputArea.setText(inputArea1.getText() + "\n" + inputArea2.getText());
+
             }
         });
 
-    }
+	}
     
     // handle button clicks
     public void actionPerformed(ActionEvent e) {
@@ -131,6 +148,6 @@ public class EMRCC extends JFrame implements ActionListener {
     }
     
     public static void main(String[] args) {
-        EMRInterface emr = new EMRInterface();
+        EMRCC emr = new EMRCC();
     }
 }
