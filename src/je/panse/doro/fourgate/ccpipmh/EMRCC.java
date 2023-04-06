@@ -12,7 +12,7 @@ public class EMRCC extends JFrame implements ActionListener {
     private JTextArea inputArea1, inputArea2, outputArea;
     private JButton clearButton, saveButton, saveAndQuitButton;
 
-    public EMRCC() {
+    public EMRCC() throws IOException {
         // set up the JFrame
         setTitle("EMR Interface");
         setSize(500, 700);
@@ -103,41 +103,79 @@ public class EMRCC extends JFrame implements ActionListener {
         add(outputPanel, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.PAGE_END);
 
+       
         // show the JFrame
         setVisible(true);
         
      	// add a DocumentListener to inputArea1
         inputArea1.getDocument().addDocumentListener(new DocumentListener() {
             public void changedUpdate(DocumentEvent e) {
-                updateOutput();
+                try {
+					updateOutput();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
             }
             public void removeUpdate(DocumentEvent e) {
-                updateOutput();
+                try {
+					updateOutput();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
             }
             public void insertUpdate(DocumentEvent e) {
-                updateOutput();
+                try {
+					updateOutput();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
             }
-            private void updateOutput() {
+            private void updateOutput() throws IOException {
 //                outputArea.setText(inputArea1.getText());
                 outputArea.setText(inputArea1.getText() + "\n" + inputArea2.getText());
                 outputArea.setCaretPosition(outputArea.getDocument().getLength());
-
+                
+                System.out.println(" outputArea.setCaretPosition(outputArea.getDocument().getLength());"+outputArea.getText());
+                EMRCCabrreturn.diseaseCode(outputArea.getText());
+                
             }
         });
         inputArea2.getDocument().addDocumentListener(new DocumentListener() {
             public void changedUpdate(DocumentEvent e) {
-                updateOutput();
+                try {
+					updateOutput();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
             }
             public void removeUpdate(DocumentEvent e) {
-                updateOutput();
+                try {
+					updateOutput();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
             }
             public void insertUpdate(DocumentEvent e) {
-                updateOutput();
+                try {
+					updateOutput();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
             }
-            private void updateOutput() {
+            private void updateOutput() throws IOException {
 //                outputArea.setText(inputArea2.getText());
                 outputArea.setText(inputArea1.getText() + "\n" + inputArea2.getText());
                 outputArea.setCaretPosition(outputArea.getDocument().getLength());
+                
+                System.out.println(" outputArea.setCaretPosition(outputArea.getDocument().getLength());"+outputArea.getText());
+                EMRCCabrreturn.diseaseCode(outputArea.getText());
+                
             }
         });
 	}
@@ -175,7 +213,7 @@ public class EMRCC extends JFrame implements ActionListener {
         }
     }
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         EMRCC emr = new EMRCC();
     }
 }

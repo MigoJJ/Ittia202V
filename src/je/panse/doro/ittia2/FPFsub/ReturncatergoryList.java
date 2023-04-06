@@ -1,9 +1,8 @@
 package je.panse.doro.ittia2.FPFsub;
 
-import java.io.IOException;
+import java.io.IOException;	
 
 import je.panse.doro.fourgate.ccpipmh.EMRCC;
-import je.panse.doro.fourgate.ccpipmh.EMRPI;
 import je.panse.doro.fourgate.ccpipmh.EMRPMH;
 import je.panse.doro.fourgate.objective.BMICalculator;
 import je.panse.doro.ittia2.FPF;
@@ -49,12 +48,12 @@ public class ReturncatergoryList extends FPF{
 				}
 				break;
 				
-			case 11:
-				if (textAreas[index].getText().contains("[ New Category ]")) {
-					EMRPI.main(null);
-					textAreas[2].setText("");
-					PFPpanelcategory.panelcategory(2);
-				}
+//			case 11:
+//				if (textAreas[index].getText().contains("[ New Category ]")) {
+//					EMRPI.main(null);
+//					textAreas[2].setText("");
+//					PFPpanelcategory.panelcategory(2);
+//				}
 			case 9:
 			case 99:
 				textAreas[index].setText(A);
