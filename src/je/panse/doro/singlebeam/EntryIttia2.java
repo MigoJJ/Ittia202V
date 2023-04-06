@@ -49,9 +49,9 @@ public class EntryIttia2 extends JFrame implements ActionListener {
 				} else if (buttonText.equals("Version Information")) {
 				    Runtime.getRuntime().exec("gedit " + EntryDir.homeDir + "/datatext/singlebeam/Version_Information");
 				} else if (buttonText.equals("Ittia Start")) {
-				        	Runtime.getRuntime().exec("java -cp "+ EntryDir.currentUsersDir +"/bin je.panse.doro.singlebeam.EntryDir");
+				    Runtime.getRuntime().exec("java -cp "+ EntryDir.currentUsersDir +"/bin je.panse.doro.singlebeam.EntryDir");
 				} else if (buttonText.equals("Rescue")) {
-				    	Runtime.getRuntime().exec("java -cp "+ EntryDir.currentUsersDir +"/bin je.panse.doro.ittia2.FPF");
+				    Runtime.getRuntime().exec("java -cp "+ EntryDir.currentUsersDir +"/bin je.panse.doro.ittia2.FPF");
 			} else {
 				dispose();
 			}
